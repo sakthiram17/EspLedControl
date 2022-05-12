@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div class = "card">
+<div class = "heading">ESP LED CONTROL</div>
+<div class = "btngrp">
+<button id = "on">Turn on LED</button>
+<button id  = "off">Turn off LED</button>
+</div>
+</div>
+</body>
+<style>
+  body{
+      background-color: bisque;
+  }
+  .heading{
+      display:block;
+      font-size: 25px;
+      padding: 20px;
+      color:white;
+      box-shadow: 0 2px 3px white;
+     background-color: rgb(0, 0, 0);
+     opacity: 0.8;
+  }
+.card{
+       background-color: white;
+       box-shadow: 0 2px 3px #ccc;
+       height:fit-content;
+       border-radius: 10px;
+       width: 40%;
+       margin: auto;
+       margin-top: 180px;
+      display: flex;
+      justify-content: center;
+   }
+   #on{
+ 
+       background-color: #41ce00;
+       font-size: 30px;
+       color:white;
+       border:none;
+       border-radius: 10px;
+       display: block;
+       padding: 20px;
+       margin: 20px;
+       box-shadow: 0 2px 3px #41ce00;
+       text-decoration: none;
+   } 
+   #off{
+       font-size: 30px;
+       background-color: #ff003c;
+       color:white;
+       border:none;
+       border-radius: 10px;
+       display: block;
+       padding: 20px;
+       margin: 20px;
+       box-shadow: 0 2px 3px #ff003c;
+       text-decoration: none;
+   }
+   #on:hover,#off:hover{
+       opacity: 0.8;
+       background-color: black;
+       box-shadow: 0 2px 3px #ccc;
+   }
+   #on:active,#off:active{
+       opacity: 1;
+       background-color: black;
+       box-shadow: 0 5px 10px #ccc;
+   }
+</style>
+<script>
+
+onbtn = document.getElementById('on');
+offbtn = document.getElementById('off');
+
+function turn_on()
+{
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  
+    if (this.readyState == 4 && this.status == 200) {
+    
+    }
+   
+  
+  };
+  xhttp.open("POST", "/on", true);
+  xhttp.send();
+
+}
+onbtn.addEventListener('click',turn_on);
+function turn_off()
+{
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  
+    if (this.readyState == 4 && this.status == 200) {
+    
+    }
+   
+  
+  };
+  xhttp.open("POST", "/off", true);
+  xhttp.send();
+
+}
+offbtn.addEventListener('click',turn_off);    
+</script>
+</html>
